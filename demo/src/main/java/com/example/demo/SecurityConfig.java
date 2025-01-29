@@ -125,7 +125,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .requestMatchers("/login").permitAll() // Allow access to /login without authentication
+                .requestMatchers("/login","/adduser").permitAll() // Allow access to /login without authentication
                 .anyRequest().authenticated() // Protect all other endpoints
                 .and()
                 .exceptionHandling()
