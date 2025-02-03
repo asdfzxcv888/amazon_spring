@@ -108,6 +108,9 @@ public class User {
     @Column(unique = true, nullable = false) // Makes the name field unique
     private String name;
 
+    @Column(unique = true, nullable = false) // Makes the name field unique
+    private String email;
+
     private String password;
 
     // One-to-Many relationship with Order
@@ -130,6 +133,15 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public String getEmail() {
+        return name;
+    }
+
+    public void setEmail(String name) {
+        this.email = name;
     }
 
     public String getPassword() {
@@ -175,9 +187,10 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String password) {
+    public User(Long id, String name, String password,String email) {
         this.id = id;
         this.name = name;
+        this.email=email;
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         this.password = passwordEncoder.encode(password);
     }

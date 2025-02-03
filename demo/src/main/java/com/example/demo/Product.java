@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,16 +27,22 @@ public class Product {
     @Column(length = 500)
     private String description;
 
+    @JsonProperty("image_url") // Maps JSON's "image_url" to this field
+    private String image_url;
+
+
+
     // Default constructor (required by JPA)
     public Product() {
     }
 
     // Parameterized constructor for easier initialization
-    public Product(String name, int quantityLeft, double price, String description) {
+    public Product(String name, int quantityLeft, double price, String description,String image_url) {
         this.name = name;
         this.quantityLeft = quantityLeft;
         this.price = price;
         this.description = description;
+        this.image_url=image_url;
     }
 
     // Getters and Setters
@@ -78,6 +86,14 @@ public class Product {
         this.description = description;
     }
 
+    public String getImage() {
+        return image_url;
+    }
+
+    public void setImage(String image_url) {
+        this.image_url = image_url;
+    }
+
     // toString method for better debugging
     @Override
     public String toString() {
@@ -87,6 +103,7 @@ public class Product {
                 ", quantityLeft=" + quantityLeft +
                 ", price=" + price +
                 ", description='" + description + '\'' +
+                ", image='" + image_url + '\'' +
                 '}';
     }
 }

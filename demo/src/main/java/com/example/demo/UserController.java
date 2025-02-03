@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +30,7 @@ public class UserController {
     private JwtUtil jwtUtil;
 
 
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/adduser")
     public ResponseEntity<?> addUser(@RequestBody User user) {
         try {
@@ -41,7 +42,7 @@ public class UserController {
         } catch (Exception e) {
             // Log the error
             System.err.println("Error saving user: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving user");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error adding user");
         }
     }
 

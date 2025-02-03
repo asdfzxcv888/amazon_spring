@@ -7,6 +7,7 @@ import org.hibernate.dialect.function.array.ArrayToStringFunction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +33,7 @@ public class ProductController {
 
     @Autowired
     private OrderRepository orderRepository;
-
+        @CrossOrigin(origins = "http://localhost:3000")
         @GetMapping("/products")
         public ResponseEntity<List<Product>> getAllProducts() {
             try {

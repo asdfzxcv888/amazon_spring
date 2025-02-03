@@ -24,7 +24,7 @@ public class DataLoader implements CommandLineRunner {
     //     // Parse JSON file
     //     ObjectMapper mapper = new ObjectMapper();
     //     List<Product> products = mapper.readValue(
-    //             new File("G:\\ww\\demo\\src\\main\\java\\com\\example\\demo\\data\\MOCK_DATA.json"),
+    //             new File("G:\\ww\\demo\\src\\main\\java\\com\\example\\demo\\data\\merged_data.json"),
     //             mapper.getTypeFactory().constructCollectionType(List.class, Product.class)
     //     );
 
